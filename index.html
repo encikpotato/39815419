@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" src="style.css">
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+        import {getDatabase, ref, child , get} from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js"
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCjI4q8fhYRPEaBu2fJsGPu_QzkKr9NBek",
+          authDomain: "water-7db44.firebaseapp.com",
+          projectId: "water-7db44",
+          storageBucket: "water-7db44.appspot.com",
+          messagingSenderId: "1027900191197",
+          appId: "1:1027900191197:web:c891d8c6f5a5ba9ffbc634",
+          databaseURL : "https://water-7db44-default-rtdb.asia-southeast1.firebasedatabase.app/"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        const dbRef = ref(getDatabase()); 
+        
+        get(child(dbRef, 'Temperature'))
+        .then((snapshot) => document.getElementById('TemperatureVal').innerHTML = snapshot.val())
+        .catch((error)=>console.log(error))
+        get(child(dbRef, 'Humidity'))
+        .then((snapshot) => document.getElementById('HumidityVal').innerHTML = snapshot.val())
+        .catch((error)=>console.log(error))
+        get(child(dbRef, 'Rain'))
+        .then((snapshot) => document.getElementById('RainVal').innerHTML = snapshot.val())
+        .catch((error)=>console.log(error))
+        
+    
+       
+
+
+        </script>
+</head>
+<body>
+  <div class="Desktop1" style="width: 1435px; height: 1024px; position: relative; background: #19647E">
+      <div class="Frame4" style="width: 915px; left: 261px; top: 290px; position: absolute; flex-direction: column; justify-content: space-between; align-items: flex-end; gap: 81px; display: inline-flex">
+        <div class="Frame1" style="width: 915px; justify-content: space-between; align-items: center; gap: 500px; display: inline-flex">
+          <div class="RainSensor" style="color: #F5F5F5; font-size: 48px; font-family: Roboto; font-weight: 600; word-wrap: break-word">Rain Sensor</div>
+          <div class="Group2" style="width: 199px; height: 83px; position: relative">
+            <div class="Rectangle1" style="width: 199px; height: 83px; left: 0px; top: 0px; position: absolute; background: #D9D9D9"></div>
+            <div id="RainVal" class="True" style="left: 56px; top: 13px; position: absolute; text-align: center; color: #1F271B; font-size: 48px; font-family: Roboto; font-weight: 600; word-wrap: break-word">true</div>
+          </div>
+        </div>
+        <div class="Frame2" style="width: 914px; justify-content: space-between; align-items: center; gap: 283px; display: inline-flex">
+          <div class="TemperatureSensor" style="color: white; font-size: 48px; font-family: Roboto; font-weight: 600; word-wrap: break-word">Temperature Sensor</div>
+          <div class="Group3" style="width: 199px; height: 83px; position: relative">
+            <div class="Rectangle1" style="width: 199px; height: 83px; left: 0px; top: 0px; position: absolute; background: #D9D9D9"></div>
+            <div id="TemperatureVal" style="left: 72px; top: 14px; position: absolute; color: black; font-size: 48px; font-family: Roboto; font-weight: 600; word-wrap: break-word">30</div>
+          </div>
+        </div>
+        <div class="Frame3" style="width: 914px; justify-content: space-between; align-items: center; gap: 523px; display: inline-flex">
+          <div class="Humidity" style="color: white; font-size: 48px; font-family: Roboto; font-weight: 600; word-wrap: break-word">Humidity</div>
+          <div class="Group4" style="width: 199px; height: 83px; position: relative">
+            <div class="Rectangle1" style="width: 199px; height: 83px; left: 0px; top: 0px; position: absolute; background: #D9D9D9"></div>
+            <div id="HumidityVal" style="left: 72px; top: 14px; position: absolute; color: black; font-size: 48px; font-family: Roboto; font-weight: 600; word-wrap: break-word">85</div>
+          </div>
+        </div>
+      </div>
+      <div class="WaterDampMonitoringSystem" style="left: 243px; top: 106px; position: absolute; color: #F5F5F5; font-size: 64px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Water Damp Monitoring System</div>
+      <div class="Group1" style="width: 314px; height: 116px; left: 561px; top: 799px; position: absolute">
+        <div class="Rectangle2" style="width: 314px; height: 116px; left: 0px; top: 0px; position: absolute; background: #F4D35E; border-radius: 60px"></div>
+        <div class="Pump" style="left: 89px; top: 30px; position: absolute; text-align: center; color: #1F271B; font-size: 48px; font-family: Roboto; font-weight: 600; word-wrap: break-word">PUMP</div>
+      </div>
+    </div>
+</body>
+</html>
