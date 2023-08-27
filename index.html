@@ -31,11 +31,11 @@
         get(child(dbRef, 'Temperature'))
         .then((snapshot) => document.getElementById('TemperatureVal').innerHTML = snapshot.val())
         .catch((error)=>console.log(error))
-        get(child(dbRef, 'Humidity'))
-        .then((snapshot) => document.getElementById('HumidityVal').innerHTML = snapshot.val())
-        .catch((error)=>console.log(error))
         get(child(dbRef, 'Rain'))
         .then((snapshot) => document.getElementById('RainVal').innerHTML = snapshot.val())
+        .catch((error)=>console.log(error))
+        get(child(dbRef, 'Humidity'))
+        .then((snapshot) => document.getElementById('HumidityVal').innerHTML = snapshot.val())
         .catch((error)=>console.log(error))
         
     
